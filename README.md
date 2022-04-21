@@ -18,6 +18,23 @@ The [Marlowe playground](https://marlowe-playground-staging.plutus.aws.iohkdev.i
 For week 1 the goal is to get an Escrow account working.  This is with two parties and a mediator that is trusted. The basis is that the funds should always be transfered to the mediator.  Then the funds are transfered to the seller only if the buyer and seller agree on the terms. 
 
 
+## Communication Pattern
+
+This represents the overall communication of buyer and seller.
+
+- Buyer deposits an amount into escrow, states `terms_buyer`.
+- Funds sit in escrow. The funds should not be removed without the buyer and the seller's consent or deadline is reached.
+- While `time < deadline` and  `complaint == False` escrow sits.
+  - Seller asked `complaint == True` 
+     -  If `complaint == True` escrow to buyer, sale canceled
+     -  If `complaint == False` mediator decides outcome
+     -  If `complaint == True ` escrow to buyer, sale canceled
+     -  If `complaint == False ` escrow to seller, sale continues
+- If `time >= deadline` and  `complaint_buyer == False` escrow to seller - sale ends
+   
+
+
+
 
 ## Future thoughts
 
