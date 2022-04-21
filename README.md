@@ -2,7 +2,24 @@
 
 Project Goal: Make a Marlowe-like application for deriving traditional financial instruments
 
-## Defining terms
+## Week 1 : Set Goals
+
+###  What is a Marlowe-like application?
+
+From [Cardano](https://developers.cardano.org/docs/smart-contracts/marlowe/#:~:text=Marlowe%20is%20a%20domain%2Dspecific,specifically%20designed%20for%20financial%20contracts.):
+- Marlowe is a domain-specific language (DSL) that enables users to create blockchain applications that are specifically designed for financial contracts.
+
+### Example application 
+
+The [Marlowe playground](https://marlowe-playground-staging.plutus.aws.iohkdev.io/#/javascript) has a series of examples to use.
+
+### Goals
+
+For week 1 the goal is to get an Escrow account working.  This is with two parties and a mediator that is trusted. The basis is that the funds should always be transfered to the mediator.  Then the funds are transfered to the seller only if the buyer and seller agree on the terms. 
+
+
+
+## Future thoughts
 
 ### Traditional financial instruments
 
@@ -30,9 +47,3 @@ yahooFinance.quote({
   // ...
 });
 ```
-
-###  What is a Marlowe-like application?
-
-From [Cardano](https://developers.cardano.org/docs/smart-contracts/marlowe/#:~:text=Marlowe%20is%20a%20domain%2Dspecific,specifically%20designed%20for%20financial%20contracts.):
-- Marlowe is a domain-specific language (DSL) that enables users to create blockchain applications that are specifically designed for financial contracts.
-
