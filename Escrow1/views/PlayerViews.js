@@ -5,7 +5,7 @@ const exports = {};
 // Player views must be extended.
 // It does not have its own Wrapper view.
 
-exports.GetHand = class extends React.Component {
+exports.GetEscrow = class extends React.Component {
   render() {
     const {parent, playable, hand} = this.props;
     return (

@@ -53,7 +53,7 @@ exports.FundAccount = class extends React.Component {
   }
 }
 
-exports.DeployerOrAttacher = class extends React.Component {
+exports.BuyerOrSeller = class extends React.Component {
   render() {
     const {parent} = this.props;
     return (

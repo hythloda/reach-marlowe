@@ -26,14 +26,14 @@ class App extends React.Component {
     if (await reach.canFundFromFaucet()) {
       this.setState({view: 'FundAccount'});
     } else {
-      this.setState({view: 'DeployerOrAttacher'});
+      this.setState({view: 'BuyerOrSeller'});
     }
   }
   async fundAccount(fundAmount) {
     await reach.fundFromFaucet(this.state.acc, reach.parseCurrency(fundAmount));
-    this.setState({view: 'DeployerOrAttacher'});
+    this.setState({view: 'BuyerOrSeller'});
   }
-  async skipFundAccount() { this.setState({view: 'DeployerOrAttacher'}); }
+  async skipFundAccount() { this.setState({view: 'BuyerOrSeller'}); }
   selectAttacher() { this.setState({view: 'Wrapper', ContentView: Attacher}); }
   selectDeployer() { this.setState({view: 'Wrapper', ContentView: Deployer}); }
   render() { return renderView(this, AppViews); }
@@ -41,9 +41,9 @@ class App extends React.Component {
 
 class Player extends React.Component {
   random() { return reach.hasRandom.random(); }
-  async getHand() { // Fun([], UInt)
+  async getEscrow() { // Fun([], UInt)
     const hand = await new Promise(resolveHandP => {
-      this.setState({view: 'GetHand', playable: true, resolveHandP});
+      this.setState({view: 'GetEscrow', playable: true, resolveHandP});
     });
     this.setState({view: 'WaitingForResults', hand});
     return handToInt[hand];
