@@ -22,12 +22,12 @@ forall(UInt, (hand) =>
 export const main = Reach.App(() => {
   const Buyer = Participant('Buyer', {
     amount: UInt, // atomic units of currency
-    deadline: UInt, // time delta (blocks/rounds)
   });
   const Seller   = Participant('Seller', {
     acceptAmount: Fun([UInt], Null),
+    deadline: UInt, // time delta (blocks/rounds)
   });
-  const Seller   = Participant('Mediator', {
+  const Mediator   = Participant('Mediator', {
     acceptComplaint: Fun([UInt], Null),
   });
   init();
@@ -40,7 +40,8 @@ export const main = Reach.App(() => {
 
   Buyer.only(() => {
     const amount = declassify(interact.amount);
-    const deadline = declassify(interact.deadline);
+    const complaint = declassify(interact.deadline);
+
   });
   Buyer.publish(amount, deadline)
     .pay(amount);

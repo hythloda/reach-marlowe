@@ -9,29 +9,29 @@ exports.Wrapper = class extends React.Component {
   render() {
     const {content} = this.props;
     return (
-      <div className="Deployer">
-        <h2>Deployer (Alice)</h2>
+      <div className="Seller">
+        <h2>Seller</h2>
         {content}
       </div>
     );
   }
 }
 
-exports.SetWager = class extends React.Component {
+exports.SetAmount = class extends React.Component {
   render() {
-    const {parent, defaultWager, standardUnit} = this.props;
-    const wager = (this.state || {}).wager || defaultWager;
+    const {parent, defaultAmount, standardUnit} = this.props;
+    const amount = (this.state || {}).amount || defaultAmount;
     return (
       <div>
         <input
           type='number'
-          placeholder={defaultWager}
-          onChange={(e) => this.setState({wager: e.currentTarget.value})}
+          placeholder={defaultAmount}
+          onChange={(e) => this.setState({amount: e.currentTarget.value})}
         /> {standardUnit}
         <br />
         <button
-          onClick={() => parent.setWager(wager)}
-        >Set wager</button>
+          onClick={() => parent.setAmount(amount)}
+        >Set amount</button>
       </div>
     );
   }
@@ -39,10 +39,10 @@ exports.SetWager = class extends React.Component {
 
 exports.Deploy = class extends React.Component {
   render() {
-    const {parent, wager, standardUnit} = this.props;
+    const {parent, amount, standardUnit} = this.props;
     return (
       <div>
-        Wager (pay to deploy): <strong>{wager}</strong> {standardUnit}
+        Amount (pay to deploy): <strong>{amount}</strong> {standardUnit}
         <br />
         <button
           onClick={() => parent.deploy()}
@@ -60,7 +60,7 @@ exports.Deploying = class extends React.Component {
   }
 }
 
-exports.WaitingForAttacher = class extends React.Component {
+exports.WaitingForBuyer = class extends React.Component {
   async copyToClipboard(button) {
     const {ctcInfoStr} = this.props;
     navigator.clipboard.writeText(ctcInfoStr);
@@ -76,7 +76,7 @@ exports.WaitingForAttacher = class extends React.Component {
     const {ctcInfoStr} = this.props;
     return (
       <div>
-        Waiting for Attacher to join...
+        Waiting for Buyer to join...
         <br /> Please give them this contract info:
         <pre className='ContractInfo'>
           {ctcInfoStr}

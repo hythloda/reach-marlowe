@@ -50,12 +50,12 @@ exports.Attaching = class extends React.Component {
 
 exports.AcceptTerms = class extends React.Component {
   render() {
-    const {wager, standardUnit, parent} = this.props;
+    const {amount, standardUnit, parent} = this.props;
     const {disabled} = this.state || {};
     return (
       <div>
         The terms of the game are:
-        <br /> Wager: {wager} {standardUnit}
+        <br /> Amount: {amount} {standardUnit}
         <br />
         <button
           disabled={disabled}
@@ -63,7 +63,7 @@ exports.AcceptTerms = class extends React.Component {
             this.setState({disabled: true});
             parent.termsAccepted();
           }}
-        >Accept terms and pay wager</button>
+        >Accept terms and pay amount</button>
       </div>
     );
   }

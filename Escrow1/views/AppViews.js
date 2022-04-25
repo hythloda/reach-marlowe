@@ -53,7 +53,7 @@ exports.FundAccount = class extends React.Component {
   }
 }
 
-exports.BuyerOrSeller = class extends React.Component {
+exports.BuyerOrSellerOrMediator = class extends React.Component {
   render() {
     const {parent} = this.props;
     return (
@@ -62,15 +62,21 @@ exports.BuyerOrSeller = class extends React.Component {
         <br />
         <p>
           <button
-            onClick={() => parent.selectDeployer()}
-          >Deployer</button>
+            onClick={() => parent.selectBuyer()}
+          >Seller</button>
           <br /> Set the Amount, deploy the contract.
         </p>
         <p>
           <button
-            onClick={() => parent.selectAttacher()}
-          >Attacher</button>
-          <br /> Attach to the Deployer's contract.
+            onClick={() => parent.selectBuyer()}
+          >Buyer</button>
+          <br /> Attach to the Seller's contract.
+        </p>
+        <p>
+          <button
+            onClick={() => parent.selectMediator()}
+          >Seller</button>
+          <br /> Set the Amount, deploy the contract.
         </p>
       </div>
     );

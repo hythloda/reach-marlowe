@@ -1,7 +1,7 @@
 import React from 'react';
 import AppViews from './views/AppViews';
-import DeployerViews from './views/DeployerViews';
-import AttacherViews from './views/AttacherViews';
+import SellerViews from './views/SellerViews';
+import BuyerViews from './views/BuyerViews';
 import {renderDOM, renderView} from './views/render';
 import './index.css';
 import * as backend from './build/index.main.mjs';
@@ -34,8 +34,9 @@ class App extends React.Component {
     this.setState({view: 'BuyerOrSeller'});
   }
   async skipFundAccount() { this.setState({view: 'BuyerOrSeller'}); }
-  selectAttacher() { this.setState({view: 'Wrapper', ContentView: Attacher}); }
-  selectDeployer() { this.setState({view: 'Wrapper', ContentView: Deployer}); }
+  selectSeller() { this.setState({view: 'Wrapper', ContentView: Buyer}); }
+  selectBuyer() { this.setState({view: 'Wrapper', ContentView: Seller}); }
+  selectMediator() { this.setState({view: 'Wrapper', ContentView: Mediator}); }
   render() { return renderView(this, AppViews); }
 }
 
@@ -53,7 +54,7 @@ class Player extends React.Component {
   deployEscrow(hand) { this.state.resolveHandP(hand); }
 }
 
-class Deployer extends Player {
+class Seller extends Player {
   constructor(props) {
     super(props);
     this.state = {view: 'SetAmount'};
@@ -66,11 +67,11 @@ class Deployer extends Player {
     this.deadline = {ETH: 10, ALGO: 100, CFX: 1000}[reach.connector]; // UInt
     backend.Buyer(ctc, this);
     const ctcInfoStr = JSON.stringify(await ctc.getInfo(), null, 2);
-    this.setState({view: 'WaitingForAttacher', ctcInfoStr});
+    this.setState({view: 'WaitingForBuyer', ctcInfoStr});
   }
-  render() { return renderView(this, DeployerViews); }
+  render() { return renderView(this, SellerViews); }
 }
-class Attacher extends Player {
+class Buyer extends Player {
   constructor(props) {
     super(props);
     this.state = {view: 'Attach'};
@@ -90,7 +91,7 @@ class Attacher extends Player {
     this.state.resolveAcceptedP();
     this.setState({view: 'WaitingForTurn'});
   }
-  render() { return renderView(this, AttacherViews); }
+  render() { return renderView(this, BuyerViews); }
 }
 
 renderDOM(<App />);
