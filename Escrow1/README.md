@@ -38,10 +38,10 @@ For week 1 the goal is to get an Escrow account working. This is with two partie
 
 This represents the overall communication of buyer and seller.
 
-- Buyer deposits an amount into escrow, defines deadline.
+- Buyer deposits an amount into escrow to mediator, defines deadline.
 - Funds sit in escrow. The funds should not be removed without the buyer and the seller's consent or deadline is reached.
-- Buyer has the option to create a `complaint`
-- While `time < deadline` and `complaint == False` escrow sits.
+- Buyer defaults to have `complaint ==True`, buyer can label `complaint == False`
+- When `time > deadline` and `complaint == False` escrow sits.
   - Seller asked `complaint == True`
     - If `complaint == True` escrow to buyer, sale canceled
     - If `complaint == False` mediator decides outcome
