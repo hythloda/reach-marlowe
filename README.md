@@ -19,6 +19,17 @@ curl https://docs.reach.sh/reach -o reach ; chmod +x reach
 
 If success then go to [http://localhost:3000/](http://localhost:3000/)
 
+## Week 4 : Account connection
+Have three accounts and made the logic similar for all.  For some reason the JSON is not showing when it goes into the Buyer account, this is likely the if statement is not right so I have some debugging information and it should go into that area.  Need more troubleshooting. 
+
+
+## Week 3 : Term based
+
+This week I went back to the basics and was able to apply the concepts of Rock-Paper-scisors tutorial via the command line into the program.  I did not get the account connected but was able to see the logic needed. 
+
+## Week 2 : Try UI
+
+For this week I tried to take on more than I could chew. This seemed like an easy project so I jumped straight to the full blown solution. This did not work and I need to take a step back and review what I am doing and why.  This week really reminds me of the importance of incremental and iterative approaches. 
 
 
 ## Week 1 : Set Goals
